@@ -1,0 +1,170 @@
+/* DAY-10 TARGET stylesheet.
+   Every technique in here is on your 10-day path. Sections are ordered
+   the way the page reads: nav, hero, services, testimonial, footer. */
+
+body {
+    background-color: #111114;
+    color: #f2f2f0;
+    font-family: sans-serif;
+    /* Browsers give body a default 8px margin (you saw it in the
+       inspector's box model). A full-bleed design removes it. */
+    margin: 0;
+}
+
+/* ===== nav — a flexbox row: brand left, links right ===== */
+
+.nav {
+    display: flex;
+    justify-content: space-between; /* leftover space goes between them */
+    align-items: center;            /* day 2-3: vertical centering */
+    padding: 16px 24px;
+    border-bottom: 1px solid #2a2a30;
+}
+
+.brand {
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #b8b8c0;
+    text-decoration: none;   /* removes the default underline */
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #f2f2f0;
+}
+
+/* ===== hero — the wallpaper-slide animated gradient ===== */
+
+.hero {
+    text-align: center;
+    padding: 70px 24px;
+    background: linear-gradient(90deg, #534ab7, #0f6e56, #3c3489, #534ab7);
+    background-size: 300% 100%;          /* wallpaper wider than window */
+    animation: slide 9s linear infinite alternate;
+}
+
+@keyframes slide {
+    from { background-position: 0% 50%; }
+    to   { background-position: 100% 50%; }
+}
+
+.hero p {
+    color: #d6d3f5;
+}
+
+/* The floating sparkle: same keyframes idea, tiny distance, forever. */
+.floaty {
+    display: inline-block;  /* transforms need a box, not bare text */
+    animation: floaty 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes floaty {
+    from { transform: translateY(3px); }
+    to   { transform: translateY(-5px); }
+}
+
+/* The hire-me button: transition on the base rule, transform on hover.
+   Same pattern as your green award side quest. */
+.cta {
+    display: inline-block;
+    background-color: #f2f2f0;
+    color: #26215c;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: transform 0.2s;
+}
+
+.cta:hover {
+    transform: scale(1.06);
+}
+
+/* ===== services — three cards sharing a flex row ===== */
+
+.services {
+    display: flex;
+    gap: 16px;
+    padding: 28px 24px;
+}
+
+.card {
+    flex: 1;                       /* each card takes an equal share */
+    border: 1px solid #2a2a30;
+    border-radius: 12px;
+    padding: 18px;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-6px);   /* the classic hover lift */
+    border-color: #7f77dd;
+}
+
+.card h2 {
+    font-size: 17px;
+    margin: 0 0 6px 0;
+}
+
+.card p {
+    color: #b8b8c0;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ===== testimonial — one flex row: stars, quote, attribution ===== */
+
+.testimonial {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid #2a2a30;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 0 24px 28px 24px;
+}
+
+.stars {
+    color: #ef9f27;
+    letter-spacing: 2px;
+}
+
+.quote {
+    font-style: italic;
+    margin: 0;
+}
+
+.who {
+    color: #77767e;
+    font-size: 13px;
+    margin-left: auto;   /* flex trick: eats leftover space, pushes right */
+}
+
+/* ===== footer ===== */
+
+.footer {
+    text-align: center;
+    color: #77767e;
+    font-size: 13px;
+    padding: 18px;
+    border-top: 1px solid #2a2a30;
+}
+
+/* ===== day 4-5 preview: responsive ===== */
+/* A media query = CSS that only applies when a condition is true.
+   Here: when the window is narrow, the card row stacks vertically.
+   Drag your browser window narrow and watch it happen. */
+
+@media (max-width: 600px) {
+    .services {
+        flex-direction: column;
+    }
+}

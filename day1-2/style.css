@@ -1,0 +1,94 @@
+.my-proudest-award {
+    background-color: green;
+    border-radius: 5px;
+    padding: 8px;
+    transition: 0.3s;
+}
+
+.my-proudest-award:hover {
+    transform: scale(1.1);
+}
+
+body {
+  background: linear-gradient(135deg, rgb(150, 250, 135), rgb(255, 196, 93)); 
+  background-size: 300% 100%;
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+  animation: infinite alternate anim 3s;
+  min-height: 100vh;
+}
+
+  @keyframes anim {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; } }
+
+
+h1 {
+    font-style: italic;
+}
+
+li {
+    
+    text-align: left;
+    list-style-type: none; 
+    background-color: rgb(129, 129, 129);
+    width: 160px;
+}
+
+ul {
+    background-color: rgb(129, 129, 129);
+    border-radius: 10px;
+    padding: 8px;
+    display: flex;
+    gap: 30px;
+    justify-content: space-evenly;
+}
+
+p {
+    text-align: left;
+    background-color: rgb(129, 129, 129);
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.nav {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: teal;
+    padding: 16px;
+    border-radius: 20px;
+}
+
+@media (max-width: 700px) {
+    ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+
+    .content {
+        padding: 12px;
+    }
+}
